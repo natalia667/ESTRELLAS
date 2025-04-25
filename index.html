@@ -6,105 +6,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portada Emprendedores</title>
 
-  <!-- 1) Importar Google Font Poppins -->
+  <!-- IMPORTAMOS Poppins para el texto -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;400&display=swap" rel="stylesheet">
 
   <style>
-    /* 2) Reset y cuerpo */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Poppins', sans-serif;
-    }
+    /* Reset básico */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow: hidden; }
 
-    /* 3) Fondo y partículas */
+    /* Contenedor de partículas + fondo */
     #particles-js {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('fondo-emprendedores.jpg') no-repeat center center fixed;
-      background-size: cover;
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('fondo-emprendedores.jpg') center/cover no-repeat;
       z-index: 0;
     }
+    /* Capa semitransparente */
     #particles-js::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
+      content: ""; position: absolute; top: 0; left: 0;
       width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
+      background: rgba(0,0,0,0.4);
       z-index: 1;
     }
 
-    /* 4) Texto centrado */
+    /* Texto centrado */
     .content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      text-align: center;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #FFFFFF;
+      position: relative; z-index: 2;
+      top: 50%; transform: translateY(-50%);
+      text-align: center; color: #fff;
+      font-family: 'Poppins', sans-serif;
     }
     .content h1 {
-      margin: 0;
-      font-size: 4em;
-      font-weight: 700;
+      font-size: 4em; font-weight: 700;
     }
     .content p {
-      margin: 0.5em 0 0;
-      font-size: 1.5em;
-      font-weight: 400;
+      font-size: 1.5em; font-weight: 400;
+      margin-top: 0.3em;
     }
   </style>
 </head>
+
 <body>
-
-  <!-- Contenedor de partículas y fondo -->
   <div id="particles-js"></div>
-
-  <!-- Texto principal -->
   <div class="content">
-    <h1>DISEÑAMOS SOLUCIONES</h1>
+    <h1>CREAMOS SOLUCIONES</h1>
     <p>para emprendedores</p>
   </div>
 
-  <!-- 5) Cargar la librería de particles.js desde CDN -->
+  <!-- Particles.js original desde CDN -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-  <!-- 6) Configuración de partículas estilo aurora boreal -->
   <script>
+    /* Configuración original: partículas blancas con líneas y repulse */
     particlesJS('particles-js', {
       "particles": {
-        "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": ["#A259FF","#8A2BE2","#DA70D6","#BA55D3"] },
+        "number": { "value": 80 },
+        "color": { "value": "#ffffff" },
         "shape": { "type": "circle" },
-        "opacity": { "value": 0.6, "random": true },
-        "size": { "value": 3, "random": true },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
         "line_linked": {
           "enable": true,
           "distance": 150,
-          "color": "#A259FF",
+          "color": "#ffffff",
           "opacity": 0.4,
           "width": 1
         },
-        "move": { "enable": true, "speed": 2 }
+        "move": { "enable": true, "speed": 6 }
       },
       "interactivity": {
-        "detect_on": "canvas",
         "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "onclick": { "enable": true, "mode": "push" },
-          "resize": true
-        },
-        "modes": {
-          "grab": { "distance": 200, "line_linked": { "opacity": 1 } },
-          "push": { "particles_nb": 4 }
+          "onhover": { "enable": true, "mode": "repulse" }
         }
       },
       "retina_detect": true
